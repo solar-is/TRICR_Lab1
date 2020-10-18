@@ -23,7 +23,7 @@
                         <img src="src/graph.png" alt="graph">
                     </div>
 
-                    <form class="selection" action="index.php" method="post">
+                    <form class="selection" method="post">
                         <div class="x-select">
                             <label class="selection-label">Выберите X
                                 <span class="warning" data-validate="Выберите 1 значение"></span>
@@ -53,7 +53,7 @@
                             <?php } ?>
                         </div>
                         <input class="btn-submit" type="submit" value="Отправить">
-                        <div class="btn-submit clear-cookie">Стереть куки</div>
+                        <div class="btn-submit clear-cookie">Очистить таблицу</div>
                     </form>
 
                     <table class="results">
