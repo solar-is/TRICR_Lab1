@@ -65,6 +65,20 @@
                             <th>Текущее время</th>
                             <th>Время работы скрипта, мкс</th>
                         </tr>
+                        <?php
+                        if (isset($_COOKIE['entries'])) {
+                            $entries = unserialize($_COOKIE['entries']);
+                            foreach ($entries as $entry) {
+                                $isInside = $entry[3] == 'true' ? '<td class="green-color">Входит</td>' : '<td class="red-color">Не входит</td>';?>
+                                <tr>
+                                    <td><?= $entry[0] ?></td>
+                                    <td><?= $entry[1] ?></td>
+                                    <td><?= $entry[2] ?></td>
+                                    <?= $isInside ?>
+                                    <td><?= $entry[4] ?></td>
+                                    <td><?= $entry[5] ?></td>
+                                </tr>
+                            <?php }} ?>
                     </table>
                 </div>
             </td>
