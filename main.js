@@ -24,10 +24,14 @@ $(document).ready(function () {
         let validX = false;
         let validY = false;
         let validR = false;
-        let ySelect = $('#Y-select').val().trim();
-        if (ySelect.match(/^-?[0-9]*[.,]?[0-9]+$/) && ySelect && ySelect !== '-') {
-            var y = parseFloat(ySelect);
-            if (y > -5 && y < 5) {
+        let yString = $('#Y-select').val().trim();
+        let yStringWithoutComma = ''
+        let yVal = 0;
+        if (yString.match(/^-?[0-9]*[.,]?[0-9]+$/) && yString && yString !== '-') {
+            yStringWithoutComma = yString.replace(',', '.');
+            let digitsCount = yStringWithoutComma.indexOf('.') + 15
+            yVal = parseFloat(yStringWithoutComma.substring(0, Math.min(digitsCount, yStringWithoutComma.length)));
+            if (yVal > -5 && yVal < 5) {
                 validY = true;
             }
         }
@@ -49,9 +53,9 @@ $(document).ready(function () {
         }
         if (validX && validY && validR) {
             $.ajax({
-                type: 'GET',
+                type: 'POST',
                 url: 'form.php',
-                data: {'x': x, 'y': y, 'r': r},
+                data: {'x': x, 'yStr': yStringWithoutComma, 'yVal': yVal, 'r': r},
                 success: function (data) {
                     $('.results > tbody').append(data);
                 },

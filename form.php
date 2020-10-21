@@ -4,19 +4,15 @@ date_default_timezone_set('Europe/Moscow');
 $currentTime = date("H:i:s");
 $startTime = microtime(true);
 
-$x = (float)$_GET['x'];
-$y = (float)str_replace(",", ".", $_GET['y']);
-$r = (float)$_GET['r'];
-
-if (!isValid($x, $y, $r)) {
-    http_response_code(400);
-    return;
-}
+$x = (float)$_POST['x'];
+$yStr = substr($_POST['yStr'], 0, 45);
+$y = $_POST['yVal'];
+$r = (float)$_POST['r'];
 
 $isEntry = checkEntry($x, $y, $r);
 $scriptTime = round(microtime(true) - $startTime, 9) * 1000000;
 
-$result = array($x, $y, $r, $isEntry, $currentTime, $scriptTime);
+$result = array($x, $yStr, $r, $isEntry, $currentTime, $scriptTime);
 
 if (isset($_COOKIE['entries'])) {
     $entries = unserialize($_COOKIE['entries']);
@@ -49,10 +45,3 @@ function checkEntry($x, $y, $r)
         return 'false';
     }
 }
-
-function isValid($x, $y, $r)
-{
-    return true;
-    /*in_array($x, array(-4, -3, -2, -1, 0, 1, 2, 3, 4)) && is_numeric($y) && $y >= -5 && $y <= 5 && in_array($r, array(1, 1.5, 2, 2.5, 3));*/
-}
-
