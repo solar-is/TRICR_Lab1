@@ -229,19 +229,6 @@ p {
     opacity: 1;
 }
 
-.alert {
-    display: none;
-    padding: 10px 18px;
-    position: fixed;
-    right: 10px;
-    bottom: 0;
-    background-color: #d13000;
-    color: #fff;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    font-size: 0.9rem;
-}
-
 .cbx-x {
     display: inline-block;
     margin-right: 6px;

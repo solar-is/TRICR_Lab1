@@ -84,8 +84,6 @@
             </td>
         </tr>
     </table>
-    <div class="alert"></div>
-
     <script type="text/javascript" src="src/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>

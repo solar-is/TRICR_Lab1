@@ -61,7 +61,7 @@ $(document).ready(function () {
                 },
                 error: function (jqXHR) {
                     console.log(jqXHR);
-                    $('.alert').text("Ошибка " + jqXHR.status + ": " + jqXHR.statusText).slideDown().delay(2000).slideUp();
+                    alert("Ошибка " + jqXHR.status + ": " + jqXHR.statusText)
                 }
             });
         }
