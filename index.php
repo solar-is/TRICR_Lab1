@@ -11,16 +11,15 @@
 <body>
     <table class="wrapper">
         <tr class="header">
-            <td class="student-name">P33211 Просолович М.А. Тайц Ю.М.</td>
+            <td class="students">P33211 Просолович М.А. Тайц Ю.М.</td>
             <td class="variant">Вариант 1034</td>
         </tr>
         <tr class="content">
             <td colspan="2">
                 <h1>Лабораторная работа №1</h1>
-                <p>Укажите параметры X, Y и R</p>
                 <div class="content-wrapper">
-                    <div class="graph">
-                        <img src="src/graph.png" alt="graph">
+                    <div class="area">
+                        <img src="src/area.png" alt="area">
                     </div>
 
                     <form class="selection" method="post">
@@ -52,8 +51,8 @@
                             </label>
                             <?php } ?>
                         </div>
-                        <input class="btn-submit" type="submit" value="Отправить">
-                        <div class="btn-submit clear-cookie">Очистить таблицу</div>
+                        <input class="btn-submit" type="submit" value="Проверить">
+                        <div class="clear-cookie">Очистить таблицу</div>
                     </form>
 
                     <table class="results">
@@ -69,7 +68,7 @@
                         if (isset($_COOKIE['entries'])) {
                             $entries = unserialize($_COOKIE['entries']);
                             foreach ($entries as $entry) {
-                                $isInside = $entry[3] == 'true' ? '<td class="green-color">Входит</td>' : '<td class="red-color">Не входит</td>';?>
+                                $isInside = $entry[3] == 'true' ? '<td class="in">Попадает</td>' : '<td class="out">Не попадает</td>';?>
                                 <tr>
                                     <td><?= $entry[0] ?></td>
                                     <td><?= $entry[1] ?></td>
