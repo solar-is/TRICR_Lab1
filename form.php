@@ -23,7 +23,7 @@ array_push($entries, $result);
 
 setcookie('entries', serialize($entries), time() + (3600 * 24 * 7));
 
-$tdEntry = $result[3] == 'true' ? '<td class="green-color">Входит</td>' : '<td class="red-color">Не входит</td>';
+$tdEntry = $result[3] == 'true' ? '<td class="in">Попадает</td>' : '<td class="out">Не попадает</td>';
 
 $response = "<tr>
         <td>$result[0]</td>
