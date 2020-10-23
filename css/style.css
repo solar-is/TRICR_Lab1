@@ -51,14 +51,9 @@ h1 {
     flex-wrap: wrap;
 }
 
-.content-wrapper > * {
-    margin-top: 10px;
-}
-
 .area {
-    margin-right: 50px;
+    margin-right: 5%;
 }
-
 .area img {
     display: block;
     width: 100%;
@@ -66,20 +61,15 @@ h1 {
     max-height: 250px;
 }
 
-.selection {
-    margin-right: 50px;
-}
-
 .selection > div {
-    margin-bottom: 10px;
+    margin-bottom: 2%;
 }
 
 .selection-label {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 1%;
     position: relative;
 }
-
 
 #Y-select {
     display: block;
@@ -133,6 +123,7 @@ h1 {
 }
 
 .results {
+    margin-top: 20px;
     flex-grow: 2;
     width: 100%;
 }
