@@ -9,6 +9,11 @@ $yStr = substr($_POST['yStr'], 0, 45);
 $y = $_POST['yVal'];
 $r = (float)$_POST['r'];
 
+if ($y < -5 || $y > 5) {
+    http_response_code(400);
+    return;
+}
+
 $isEntry = checkEntry($x, $y, $r);
 $scriptTime = round(microtime(true) - $startTime, 9) * 1000000;
 

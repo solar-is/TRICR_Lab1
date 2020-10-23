@@ -18,9 +18,20 @@ $(document).ready(function () {
 
     $('form').submit(function (e) {
         e.preventDefault();
-        const x = $('.inp-cbx-x:checked').val();
-        const r = $('.inp-cbx-r:checked').val();
-
+        let xS = 0;
+        let rS = 0;
+        for (let i = -4; i <= 4; i += 1) {
+            let cbx = $("#x" + i);
+            if (cbx.is(":checked")) {
+                xS += parseFloat(cbx.val())
+            }
+        }
+        for (let i = 1; i <= 5; i += 0.5) {
+            let cbx = $("#r" + i);
+            if (cbx.is(":checked")) {
+                rS += parseInt(cbx.val())
+            }
+        }
         let validX = false;
         let validY = false;
         let validR = false;
@@ -35,10 +46,10 @@ $(document).ready(function () {
                 validY = true;
             }
         }
-        if ($('.inp-cbx-x:checked').length === 1) {
+        if ($('.inp-cbx-x:checked').length !== 0) {
             validX = true;
         }
-        if ($('.inp-cbx-r:checked').length === 1) {
+        if ($('.inp-cbx-r:checked').length !== 0) {
             validR = true;
         }
 
@@ -55,7 +66,7 @@ $(document).ready(function () {
             $.ajax({
                 type: 'POST',
                 url: 'form.php',
-                data: {'x': x, 'yStr': yStringWithoutComma, 'yVal': yVal, 'r': r},
+                data: {'x': xS, 'yStr': yStringWithoutComma, 'yVal': yVal, 'r': rS},
                 success: function (data) {
                     $('.results > tbody').append(data);
                 },

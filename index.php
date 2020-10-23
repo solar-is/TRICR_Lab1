@@ -25,12 +25,12 @@
                     <form class="selection" method="post">
                         <div class="x-select">
                             <label class="selection-label">Выберите X
-                                <span class="warning" data-validate="Выберите 1 значение"></span>
+                                <span class="warning" data-validate="Выберите хотя бы 1 значение"></span>
                             </label>
-                            <?php for ($i = -2; $i <= 2; $i+=0.5) {?>
-                                <input class="inp-cbx-x" id="x<?=$i?>" type="checkbox" name="x" value="<?=$i?>">
+                            <?php for ($i = -4; $i <= 4; $i+=1) {?>
+                                <input class="inp-cbx-x" id="x<?=$i?>" type="checkbox" name="x" value="<?=$i/2?>">
                                 <label class="cbx-x" for="x<?=$i?>">
-                                    <span><?=$i?></span>
+                                    <span><?=$i/2?></span>
                                 </label>
                             <?php } ?>
                         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="r-select">
                             <label class="selection-label">Выберите R
-                                <span class="warning" data-validate="Выберите 1 значение"></span>
+                                <span class="warning" data-validate="Выберите хотя бы 1 значение"></span>
                             </label>
                             <?php for ($i = 1; $i <= 5; $i++) {?>
                             <input class="inp-cbx-r" id="r<?=$i?>" type="checkbox" name="r" value="<?=$i?>">
